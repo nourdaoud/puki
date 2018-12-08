@@ -1,0 +1,41 @@
+<style > 
+
+#browsebutton {
+    background-color: white;
+}
+
+#my-file-selector {
+    display: none;
+}
+
+div.row {
+	display: block;
+	text-align: center;
+}
+
+</style>
+{% extends "base.html" %}
+
+{% block app_content %}
+
+	<h1>Hi, {{ current_user.username }}! </h1>
+	<br>
+	<p> You can upload the picture you'd like to resize into  square here. Once you click upload, you'll be redirected to a page including the square page which you can save into your local computer. Happy squaring!
+	<br>
+	<br>
+	<br>
+	<div class="row">
+	    <form class="form-inline center-block"  method="POST" enctype="multipart/form-data">
+		{{ form.hidden_tag() }}
+		<div class="input-group">
+		    <label id="browsebutton" class="btn btn-default input-group-addon" for="my-file-selector">
+			{{ form.photo(id="my-file-selector") }}
+			Browse...
+		    </label>
+		    <input type="text" class="form-control" readonly>
+		</div>
+		{{ form.submit(class_="btn btn-primary") }}
+	    </form>
+	</div>
+
+{% endblock %}
