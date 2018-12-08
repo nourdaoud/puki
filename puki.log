@@ -145,3 +145,7 @@ NameError: name 'logconsole' is not defined
 2018-12-08 11:02:49,423 - werkzeug - INFO - 127.0.0.1 - - [08/Dec/2018 11:02:49] "GET /favicon.ico HTTP/1.1" 404 -
 2018-12-08 11:02:57,027 - werkzeug - INFO - 127.0.0.1 - - [08/Dec/2018 11:02:57] "GET /login?next=%2Findex HTTP/1.1" 200 -
 2018-12-08 11:02:57,134 - werkzeug - INFO - 127.0.0.1 - - [08/Dec/2018 11:02:57] "GET /favicon.ico HTTP/1.1" 404 -
+2018-12-08 16:05:06,148 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2018-12-08 16:05:13,916 - werkzeug - INFO - 127.0.0.1 - - [08/Dec/2018 16:05:13] "[32mGET / HTTP/1.1[0m" 302 -
+2018-12-08 16:05:13,962 - werkzeug - INFO - 127.0.0.1 - - [08/Dec/2018 16:05:13] "[37mGET /login?next=%2F HTTP/1.1[0m" 200 -
+2018-12-08 16:05:14,236 - werkzeug - INFO - 127.0.0.1 - - [08/Dec/2018 16:05:14] "[37mGET /login?next=%2Findex HTTP/1.1[0m" 200 -
