@@ -5,15 +5,15 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
 from flask_bootstrap import Bootstrap
-import logging
-import logging.config
+#import logging
+#import logging.config
 import  yaml 
 
 
 app = Flask(__name__)
 
-logging.config.dictConfig(yaml.load(open('/Users/noura/puki/app/logging.conf')))
-logfile = logging.getLogger('file')
+#logging.config.dictConfig(yaml.load(open('/Users/noura/puki/app/logging.conf')))
+#logfile = logging.getLogger('file')
 
 bootstrap = Bootstrap(app)
 app.config.from_object(Config)

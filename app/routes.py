@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, url_for
-from app import app, db, photos, logfile 
+from app import app, db, photos#, logfile 
 from app.forms import LoginForm, RegistrationForm, UploadForm
 from flask_login import current_user, login_user, login_required, logout_user
 from app.models import User
@@ -31,10 +31,10 @@ def index():
 
 @app.route("/download_square_photo/<filename>")
 def download(filename):
-	if (current_user.is_authenticated):
-		logfile.debug('user %s attempting to access squared image %s', current_user.username, filename)
-	else:
-		logfile.debug('Anonymous user is attempting to access squared image %s', filename)
+	#if (current_user.is_authenticated):
+	#	logfile.debug('user %s attempting to access squared image %s', current_user.username, filename)
+	#else:
+	#	logfile.debug('Anonymous user is attempting to access squared image %s', filename)
 	photos_dir = '/Users/noura/puki/uploaded-images/'
 	path = photos_dir + filename 
 	try:
@@ -56,22 +56,22 @@ def login():
 		user = User.query.filter_by(username=form.username.data).first()
 		if user is None or not user.check_password(form.password.data):
 			flash('Invalid username or password')
-			logfile.info('Invalid User or Password.') 
+			#logfile.info('Invalid User or Password.') 
 			return redirect(url_for('login'))
 		login_user(user, remember = form.remember_me.data)
 		next_page = request.args.get('next')
 		if not next_page or url_parse(next_page).netloc != '':
-			logfile.info('%s logged in successfully', user) 
+			#logfile.info('%s logged in successfully', user) 
 			next_page = url_for('index')
 		return redirect(next_page)
 	return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/logout')
 def logout():
-	if current_user.is_authenticated:
-		logfile.info('logging out %s', current_user.username)
-	else: 
-		logfile.info('anonmyous user attempting to logout')
+#	if current_user.is_authenticated:
+		#logfile.info('logging out %s', current_user.username)
+#	else: 
+		#logfile.info('anonmyous user attempting to logout')
 	logout_user()
 	return redirect(url_for('index'))
 	
@@ -85,7 +85,7 @@ def register():
 		user.set_password(form.password.data)
 		db.session.add(user)
 		db.session.commit()
-		logfile.info('user %s registered successfully.', user)
+		#logfile.info('user %s registered successfully.', user)
 		flash('Congratulations! You are now a registered user!')
 		return redirect(url_for('login'))
 	return render_template('register.html', title='Register', form=form)
